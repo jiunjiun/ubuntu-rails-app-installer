@@ -1,0 +1,31 @@
+#!/bin/bash
+# @author jiunjiun from eddie li (ADZ)
+# @updated_at 2014/08/19
+# @version 0.01
+
+DEPLOY_USER='rails'
+WEB_GROUP='www-data'
+RUBY_VERSION='2.1.2'
+
+# ---------------------
+# Setting deploy user
+# ---------------------
+
+# 1. 新增 rails application deploy user
+echo -e "\e[31m[RailsAPP] Create deploy user = $DEPLOY_USER ...\e[0m"
+useradd $DEPLOY_USER -m -G $WEB_GROUP -s /bin/bash
+echo -e "\e[31m[RailsAPP] Setting Deploy user password ...\e[0m"
+passwd $DEPLOY_USER
+
+# 2. 授權 public key 登入 deploy user
+mkdir /home/$DEPLOY_USER/.ssh/
+cp ~/.ssh/authorized_keys /home/$DEPLOY_USER/.ssh/authorized_keys
+
+# 3. 加入 sudoer 要把 deploy user 加到 web group，因為 static file 也需要 nginx 也需要有權限存取
+echo -e "\e[31m[RailsAPP] Add deploy user to sudoer list ...\e[0m"
+echo "$DEPLOY_USER  ALL=(ALL:ALL) ALL" >> /etc/sudoers
+
+# 4. Setting deploy folder
+echo -e "\e[31m[Rails] Setting deploy user bash config ...\e[0m"
+mkdir /var/www
+chown $DEPLOY_USER:$DEPLOY_USER /var/www
