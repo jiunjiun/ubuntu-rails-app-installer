@@ -26,12 +26,10 @@ echo -e "\e[31m[Rails] Installing RVM ...\e[0m"
 git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
 echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
-exec $SHELL
 
 # 3. 安裝 rbenv plugins ruby-build
 git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bash_profile
-exec $SHELL
 
 source .bash_profile
 rbenv install $RUBY_VERSION
