@@ -17,7 +17,7 @@ echo -e "\e[31m[RailsAPP] Installing runtime js library for assets pipelie ...\e
 # add-apt-repository ppa:chris-lea/node.js -y
 echo -e "\e[31m[RailsAPP] Update apt package list and install node.js ...\e[0m"
 sudo apt-get install nodejs
-sudo apt-get install nodejs
+sudo apt-get install build-essential libssl-dev
 
 # 2. 安裝 rbenv
 echo -e "\e[31m[Rails] Installing RVM ...\e[0m"
