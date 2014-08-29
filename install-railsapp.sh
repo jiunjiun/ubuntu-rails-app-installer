@@ -20,6 +20,8 @@ sudo apt-get install nodejs
 sudo apt-get install build-essential libssl-dev
 # mysql lib client for gem => mysql2
 sudo apt-get install libmysqlclient-dev -y
+# mini_magick
+sudo apt-get install imagemagick libmagickwand-dev
 
 # 2. 安裝 rbenv
 echo -e "\e[31m[Rails] Installing RVM ...\e[0m"
