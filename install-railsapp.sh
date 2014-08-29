@@ -31,7 +31,7 @@ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bash_profile
 
-source .bash_profile
+source ~/.bash_profile
 rbenv install --verbose $RUBY_VERSION
 rbenv global $RUBY_VERSION
 
