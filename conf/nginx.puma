@@ -12,9 +12,9 @@ server {
   keepalive_timeout 5;
 
   # path for static files
-  root /myapp/public;
-  access_log /myapp/log/production.access.log;
-  error_log /myapp/log/production.error.log info;
+  root /myapp/current/public;
+  # access_log /myapp/log/production.access.log;
+  # error_log /myapp/log/production.error.log info;
 
   # this rewrites all the requests to the maintenance.html
   # page if it exists in the doc root. This is for capistrano's
