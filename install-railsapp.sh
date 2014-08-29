@@ -32,7 +32,7 @@ git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-buil
 echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bash_profile
 
 source .bash_profile
-rbenv install $RUBY_VERSION
+rbenv install --verbose $RUBY_VERSION
 rbenv global $RUBY_VERSION
 
-gem install rails
+gem install rails --no-rdoc
