@@ -29,7 +29,7 @@ git submodule update
 # 3. Reload bash setting
 source ~/.bash_profile
 
-cp ./conf/bash_aliases ~/.bash_aliases
+cp conf/bash_aliases ~/.bash_aliases
 
 echo "
 if [ -f ~/.bash_aliases ]; then
