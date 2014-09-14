@@ -5,7 +5,7 @@ threads 2, 64
 workers 4
 
 app_name = ""
-application_path = "/var/www/#{app_name}"
+application_path = "/home/www/#{app_name}"
 directory "#{application_path}/current"
 
 pidfile "#{application_path}/shared/tmp/pids/puma.pid"
