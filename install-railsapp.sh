@@ -3,9 +3,9 @@
 # @updated_at 2014/08/19
 # @version 0.01
 
-DEPLOY_USER='rails'
-WEB_GROUP='www-data'
-RUBY_VERSION='2.1.2'
+# DEPLOY_USER='rails'
+# WEB_GROUP='www-data'
+RUBY_VERSION='2.2.3'
 
 # ---------------------
 # Ruby + Rails
