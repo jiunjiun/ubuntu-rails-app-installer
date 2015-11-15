@@ -6,13 +6,20 @@ server {
   listen 80;
   server_name myapp.com;
 
+  # redirect to https
+  if ($http_x_forwarded_proto = "http") {
+    return 301 https://$server_name$request_uri;
+  }
+
   # ~2 seconds is often enough for most folks to parse HTML/CSS and
   # retrieve needed images/icons/frames, connections are cheap in
   # nginx so increasing this is generally safe...
   keepalive_timeout 5;
+  client_max_body_size 5M;
 
   # path for static files
   root /myapp/current/public;
+
   # access_log /myapp/log/production.access.log;
   # error_log /myapp/log/production.error.log info;
 
@@ -67,8 +74,17 @@ server {
   }
 
   location ~ ^/javascripts/.*\.js(\?[0-9]+)?$ {
-     expires max;
-     break;
+      expires 12h;
+      add_header Cache-Control public;
+      add_header ETag "";
+      break;
+  }
+
+  location ~ ^/assets/ {
+    expires 12y;
+    add_header Cache-Control public;
+    add_header ETag "";
+    break;
   }
 
   # Error pages
